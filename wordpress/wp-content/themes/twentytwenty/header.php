@@ -10,7 +10,159 @@
  */
 
 ?><!DOCTYPE html>
+<style>
+	.site-branding {
+    display: flex;
+    align-items: center;  /* căn giữa theo chiều dọc */
+    gap: 12px;            /* khoảng cách giữa logo và slogan */
+}
 
+
+.site-description-wrapper {
+    background: #000000ff; /* nền slogan */
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+		/* ===== Header tổng thể ===== */
+#site-header {
+    background: #bcb9b9ff !important; /* màu nền sáng */
+    color: #000000ff !important;
+    border-bottom: 1px solid #ddd; /* viền mảnh dưới */
+    padding: 6px 20px;
+}
+.site-description-wrapper{
+	background-color: #454040ff !important;
+}
+
+/* ===== Layout flex ===== */
+.header-inner.section-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Logo + tên site */
+.header-titles-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 0 0 auto;
+}
+
+/* ===== Menu chính ===== */
+.primary-menu-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.primary-menu-wrapper .primary-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.primary-menu-wrapper .primary-menu li a {
+    color: #444;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.primary-menu-wrapper .primary-menu li a:hover {
+    background: #eee;
+    color: #000;
+}
+
+/* ===== Search box ===== */
+.search-box {
+    margin-left: 80px;
+}
+
+/* Search box tách input và button */
+.search-box form {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* tạo khoảng cách giữa input và button */
+}
+
+.search-box input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    outline: none;
+    width: 240px;
+}
+
+.search-box button {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f2f2f2;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #e6e6e6;
+}
+
+
+/* ===== Nhóm toggles bên phải ===== */
+.header-navigation-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Icon Menu / Search / Account */
+.header-toggles .toggle,
+.account-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #444;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.header-toggles .toggle:hover,
+.account-toggle:hover {
+    color: #000;
+}
+
+.toggle .toggle-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* ===== Account dropdown arrow ===== */
+.account-toggle .dropdown-arrow {
+    font-size: 12px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .search-box {
+        display: none;
+    }
+    .primary-menu-wrapper {
+        display: none;
+    }
+}
+
+	</style>
 <html class="no-js" <?php language_attributes(); ?>>
 
 	<head>
@@ -30,7 +182,7 @@
 		wp_body_open();
 		?>
 
-		<header id="site-header" class="header-footer-group">
+		<header id="site-header" class="header-footer-group color-header">
 
 			<div class="header-inner section-inner">
 
@@ -48,9 +200,9 @@
 						<button class="toggle search-toggle mobile-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
 							<span class="toggle-inner">
 								<span class="toggle-icon">
-									<?php twentytwenty_the_theme_svg( 'search' ); ?>
+									<?php twentytwenty_the_theme_svg( 'searchx' ); ?>
 								</span>
-								<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
+								<span class="toggle-text"><?php _ex( 'Searchzzz', 'toggle text', 'twentytwenty' ); ?></span>
 							</span>
 						</button><!-- .search-toggle -->
 
@@ -58,13 +210,20 @@
 
 					<div class="header-titles">
 
-						<?php
-							// Site title or logo.
-							twentytwenty_site_logo();
+						<div class="site-branding">
 
-							// Site description.
-							twentytwenty_site_description();
-						?>
+    <!-- Logo riêng -->
+    <div class="site-logo-wrapper">
+        <?php twentytwenty_site_logo(); ?>
+    </div>
+
+    <!-- Description riêng -->
+    <div class="site-description-wrapper">
+        <?php twentytwenty_site_description(); ?>
+    </div>
+
+</div>
+
 
 					</div><!-- .header-titles -->
 
@@ -76,6 +235,16 @@
 							<span class="toggle-text"><?php _e( 'Menu', 'twentytwenty' ); ?></span>
 						</span>
 					</button><!-- .nav-toggle -->
+
+
+				<div class="search-box">
+    <form action="/" method="get">
+        <input type="text" name="s" placeholder="Search" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
 
 				</div><!-- .header-titles-wrapper -->
 
@@ -149,9 +318,9 @@
 						if ( true === $enable_header_search ) {
 							?>
 
-							<div class="toggle-wrapper search-toggle-wrapper">
+							<div class="toggle-wrapper search-toggle-wrapper color-header">
 
-								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+								<button class="toggle search-toggle desktop-search-toggle color-header" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
 									<span class="toggle-inner">
 										<?php twentytwenty_the_theme_svg( 'search' ); ?>
 										<span class="toggle-text"><?php _ex( 'Search', 'toggle text', 'twentytwenty' ); ?></span>
@@ -164,7 +333,18 @@
 						}
 						?>
 
+
 						</div><!-- .header-toggles -->
+						<div class="toggle-wrapper account-toggle-wrapper">
+    <a class="toggle account-toggle" href="<?php echo wp_login_url(); ?>">
+        <span class="toggle-inner">
+            <?php twentytwenty_the_theme_svg( 'user' ); ?>
+            <span class="toggle-text">Account</span>
+            <span class="dropdown-arrow">▼</span>
+        </span>
+    </a>
+</div>
+
 						<?php
 					}
 					?>
@@ -185,3 +365,5 @@
 		<?php
 		// Output the menu modal.
 		get_template_part( 'template-parts/modal-menu' );
+
+

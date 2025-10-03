@@ -6779,3 +6779,29 @@ a.to-the-top > * {
 	color: #1da1f2 !important; /* màu hover */
 	fill: currentColor !important;
 }
+.social-icons a, body:not(.overlay-header) .primary-menu ul, .header-footer-group button, .header-footer-group .button, .header-footer-group .faux-button, .header-footer-group .wp-block-button:not(.is-style-outline) .wp-block-button__link, .header-footer-group .wp-block-file__button, .header-footer-group input[type="button"], .header-footer-group input[type="reset"], .header-footer-group input[type="submit"] {
+	color: #000 !important	;
+}
+#site-header, .menu-modal, .menu-modal-inner, .search-modal-inner, .archive-header, .singular .entry-header, .singular .featured-media:before, .wp-block-pullquote:before {
+    background-color: #afafaf !important;
+color: black;}
+
+.header-footer-group table caption, body:not(.overlay-header) .header-inner .toggle-wrapper::before {
+    background-color: #bababa !important;
+}
+/* Xóa gạch hai bên của nút search/menu/account */
+.header-toggles .toggle-wrapper::before,
+.header-toggles .toggle-wrapper::after,
+.toggle-wrapper account-toggle-wrapper::before {
+    display: none !important;
+    content: none !important;
+}
+.header-toggles .toggle-wrapper::before,
+.header-toggles .toggle-wrapper::after {
+    display: none !important;
+    content: none !important;
+}
+
+body:not(.overlay-header) #site-header .toggle, .menu-modal .toggle {
+    color: #000000 !important;
+}
