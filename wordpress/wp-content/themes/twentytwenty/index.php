@@ -2,11 +2,6 @@
 /**
  * The main template file
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
@@ -20,14 +15,10 @@ get_header();
 <main id="site-content">
 
 	<?php
-
 	$archive_title    = '';
 	$archive_subtitle = '';
 
 	if ( is_search() ) {
-		/**
-		 * @global WP_Query $wp_query WordPress Query object.
-		 */
 		global $wp_query;
 
 		$archive_title = sprintf(
@@ -38,7 +29,6 @@ get_header();
 
 		if ( $wp_query->found_posts ) {
 			$archive_subtitle = sprintf(
-				/* translators: %s: Number of search results. */
 				_n(
 					'We found %s result for your search.',
 					'We found %s results for your search.',
@@ -59,28 +49,11 @@ get_header();
 
 	if ( $archive_title || $archive_subtitle ) {
 		?>
-
-		<header class="archive-header has-text-align-center header-footer-group">
-
-			<div class="archive-header-inner section-inner medium">
-
-				<?php if ( $archive_title ) { ?>
-					<h1 class="archive-title"><?php echo wp_kses_post( $archive_title ); ?></h1>
-				<?php } ?>
-
-				<?php if ( $archive_subtitle ) { ?>
-					<div class="archive-subtitle section-inner thin max-percentage intro-text"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
-				<?php } ?>
-
-			</div><!-- .archive-header-inner -->
-
-		</header><!-- .archive-header -->
-
+		
 		<?php
 	}
 
 	if ( have_posts() ) {
-
 		$i = 0;
 
 		while ( have_posts() ) {
@@ -89,26 +62,35 @@ get_header();
 				echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
 			}
 			the_post();
-
 			get_template_part( 'template-parts/content', get_post_type() );
-
 		}
 	} elseif ( is_search() ) {
+		// Custom "No search results" section.
 		?>
+		<div class="no-search-results-wrapper">
+			<div class="no-search-results-box">
+				<h2>
+					<?php echo sprintf( __( 'Search: %s', 'twentytwenty' ), '<span>"' . esc_html( get_search_query() ) . '"</span>' ); ?>
+				</h2>
+				<p>
+					<?php esc_html_e( 'We could not find any results for your search. You can give it another try through the search form below.', 'twentytwenty' ); ?>
+				</p>
 
-		<div class="no-search-results-form section-inner thin">
-
-			<?php
-			get_search_form(
-				array(
-					'aria_label' => __( 'search again', 'twentytwenty' ),
-				)
-			);
-			?>
-
-		</div><!-- .no-search-results -->
-
+				<div class="search-again-form">
+					<?php
+					get_search_form(
+						array(
+							'aria_label' => __( 'search again', 'twentytwenty' ),
+						)
+					);
+					?>
+				</div>
+			</div>
+		</div>
 		<?php
+	} else {
+		// When no posts and not a search
+		get_template_part( 'template-parts/content', 'none' );
 	}
 	?>
 
@@ -117,6 +99,4 @@ get_header();
 </main><!-- #site-content -->
 
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
-
-<?php
-get_footer();
+<?php get_footer(); ?>

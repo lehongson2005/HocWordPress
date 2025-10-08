@@ -6967,3 +6967,69 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 }
+/* ===========================
+   Custom No Search Results
+   =========================== */
+.no-search-results-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: #fdfbf7;
+}
+
+.no-search-results-box {
+  max-width: 650px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.no-search-results-box h2 {
+  color: #c62828;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.no-search-results-box h2 span {
+  color: #111;
+}
+
+.no-search-results-box p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.search-again-form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-again-form input[type="search"] {
+  width: 320px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.search-again-form input[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-again-form input[type="submit"]:hover {
+  background-color: #218838;
+}
