@@ -255,7 +255,7 @@ content: "» ";
 	/* Canh giữa khối bài viết trên trang */
 	margin: 10px 0 0 100px; /* 15px trên dưới, auto trái phải */
 	/* Giới hạn chiều rộng để canh giữa hoạt động */
-	max-width: 550px; /* Tăng max-width lên chút để khối trắng nằm giữa */
+	
 	padding-bottom: 10px;
 }
 
@@ -275,9 +275,9 @@ content: "» ";
 
 	/* Đảm bảo chiều rộng đồng nhất và phù hợp với max-width của cha */
 	width: 100%; /* Chiếm toàn bộ không gian của .custom-post-item */
-	max-width: 500px; /* Vẫn giữ giới hạn chiều rộng nội tại */
-	height: 150px;
-	padding: 25px;
+	max-width: 600px; /* Vẫn giữ giới hạn chiều rộng nội tại */
+	height: 200px;
+	padding: 5px;
 
 	gap: 30px;
 	cursor: pointer;
@@ -291,7 +291,7 @@ content: "» ";
 .custom-post-date {
 	text-align: center;
 	/* Dùng Flexbox/Padding để căn lề thay vì Margin lớn */
-	min-width: 60px;
+	min-width: 100px;
 	padding-right: 5px;
 }
 
@@ -6967,69 +6967,63 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 }
-/* ===========================
-   Custom No Search Results
-   =========================== */
-.no-search-results-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  background: #fdfbf7;
+/* content  */
+.color-accent{
+	color: #ff2727 !important;
+}
+.archive-header{
+	background-color:white !important;
+	color: black !important;
+}
+/* 1. Thiết lập Layout tổng thể của Form */
+/* 1. Thiết lập Layout tổng thể của Form */
+.no-search-results-form.search-form-3 {
+	display: flex;
+	align-items: center;
+	max-width: 650px;
+	margin: 40px auto;
+	padding: 10px;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.no-search-results-form.search-form::before {
+	content: "\f002";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	font-size: 18px;
+	color: #666;
+	margin-top: 14px;
+	/*margin-right: 6px;*/
+	transition: color 0.3s ease;
 }
 
-.no-search-results-box {
-  max-width: 650px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  padding: 40px 30px;
+/* 2. Tạo kiểu cho Ô nhập liệu (Search Field) - Chứa Icon */
+.no-search-results-form.search-field {
+	flex-grow: 1;
+	/* Tăng padding trái để chừa chỗ cho icon, đây là phần quan trọng */
+	padding: 10px 15px 10px 5px !important;
+	border: none !important;
+	outline: none;
+	font-size: 16px;
+	color: #333;
 }
 
-.no-search-results-box h2 {
-  color: #c62828;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
+/* 3. Tạo kiểu cho Nút Tìm kiếm (Search Button) */
+.no-search-results-form.search-submit {
+	background-color: #38A852 !important; /* Màu xanh lá cây */
+	color: white !important;
+	border: none !important;
+	padding: 12px 25px !important;
+	font-size: 16px !important;
+	text-transform: capitalize;
+	border-radius: 3px !important;
+	cursor: pointer;
+	margin-left: 10px;
+	transition: background-color 0.3s ease;
 }
 
-.no-search-results-box h2 span {
-  color: #111;
-}
-
-.no-search-results-box p {
-  color: #555;
-  font-size: 15px;
-  margin-bottom: 30px;
-}
-
-.search-again-form form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-
-.search-again-form input[type="search"] {
-  width: 320px;
-  padding: 10px 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 15px;
-}
-
-.search-again-form input[type="submit"] {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.search-again-form input[type="submit"]:hover {
-  background-color: #218838;
+.search-submit:hover {
+	background-color: #2F8C43 !important;
 }
