@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    ports:
+      - "8090:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_DB_NAME: admin
+      # THÊM CÁC DÒNG NÀY ĐỂ FIX FTP:
+      WORDPRESS_CONFIG_EXTRA: |
+        define('FS_METHOD', 'direct');
+        define('WP_TEMP_DIR', '/var/www/html/wp-content/temp/');
+        define('FS_CHMOD_DIR', 0777);
+        define('FS_CHMOD_FILE', 0666);
+    volumes:
+      - ./wordpress:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: admin
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - db:/var/lib/mysql
+    command:  # THÊM DÒNG NÀY
+      - --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-padmin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - "8091:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: admin  # ĐỔI THÀNH ROOT
+    depends_on:
+      - db
+
+volumes:
+  db:
