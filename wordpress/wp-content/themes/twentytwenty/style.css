@@ -7129,3 +7129,138 @@ a.to-the-top > * {
 		display: none; /* Ẩn kẻ dọc trên di động */
 	}
 }
+
+.entry-header {
+    background-color: #ffffff !important; /* nền trắng */
+    text-align: center;        /* căn giữa */
+    padding: 10px 0;           /* khoảng cách trên dưới */
+    margin-bottom: 20px;       /* khoảng cách so với nội dung bên dưới */
+}
+
+.entry-header .entry-title {
+    color: #000000;            /* chữ màu đen */
+    font-size: 2.5rem;         /* kích thước chữ */
+    font-weight: 700;           /* đậm chữ */
+    line-height: 0.3;
+    margin: 0;                  /* loại bỏ margin mặc định của h1 */
+}
+@media (min-width: 700px) {
+    .singular .entry-header {
+        padding: 5rem 0 !important;
+    }
+}
+
+/* --- 1. Container Chính (Header) --- */
+/* Thiết lập đã có: Dùng Flexbox để căn chỉnh Tiêu đề (trái/giữa) và Ngày tháng (phải) */
+.entry-header-with-date {
+    display: flex;
+    justify-content: space-between; /* Đẩy Title sang trái/Date sang phải */
+    align-items: center; /* Căn chỉnh các mục theo chiều dọc */
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px; /* Giảm margin để đường kẻ nằm sát hơn */
+    border-bottom: 1px solid #eee; /* Đường viền ngang MỎNG (đường kẻ chính) */
+    position: relative; /* Quan trọng: Đặt context cho các hiệu ứng bên dưới */
+}
+
+.entry-header-with-date .entry-title {
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    flex: 1; /* Chiếm hết không gian còn lại */
+    padding-right: 20px; /* Khoảng cách giữa Tiêu đề và Ngày tháng */
+	text-align: center;
+}
+
+/* --- HIỆU ỨNG ĐƯỜNG GỢN SÓNG (Dùng Pseudo-elements) --- */
+/* Đường kẻ ngang (border-bottom) đã có trên header. 
+   Bây giờ chúng ta dùng ::after để tạo hình tam giác hướng xuống.
+*/
+
+/* Bỏ 1a (::after) vì chúng ta không cần khối màu trắng để che nữa. 
+   Chúng ta sẽ dùng ::after để tạo tam giác.
+*/
+
+/* Hình chữ V (Caret lõm xuống) */
+.entry-header-with-date::after { /* Đổi từ ::before sang ::after để đơn giản hóa */
+    content: '';
+    position: absolute;
+    /* bottom: -1px; -> Đặt tam giác sao cho nó chạm vào đường viền */
+    bottom: -10px; /* Đẩy xuống 10px để phần tam giác nằm dưới đường viền */
+    
+    /* Vị trí lõm: Bên trái */
+    left: 40px; 
+    transform: none; 
+    
+    /* Tạo hình tam giác HƯỚNG XUỐNG (sử dụng border-top) */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #eee; /* Màu của đường viền */
+    
+    z-index: 2; /* Đảm bảo nó nằm trên mọi thứ nếu có */
+}
+
+
+/* --- 2. Container Ngày Tháng (post-date-right) - Đóng vai trò là hình tròn --- */
+.post-date-right {
+    /* Tạo hình tròn chính */
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%;
+    background-color: #FFD83A; /* Màu vàng của biểu tượng */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    
+    /* Thiết lập Flexbox để căn chỉnh 3 khối số bên trong */
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    align-content: center; 
+    
+    position: relative; 
+    flex-shrink: 0; 
+}
+
+/* --- 3. Định dạng chung cho Ngày, Tháng, Năm --- */
+.post-date-right .day,
+.post-date-right .month,
+.post-date-right .year {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1;
+    text-align: center;
+    position: absolute; 
+    font-weight: 700;
+}
+
+/* --- 4. Ngày (.day) và Tháng (.month) (Cột bên trái) --- */
+/* Đảm bảo Ngày và Tháng nằm bên trái, phân cách bằng gạch ngang */
+.post-date-right .day {
+    font-size: 16px; 
+    left: 10px; 
+    top: 15px; 
+    
+    /* Tạo gạch ngang phân cách (border-bottom) */
+    border-bottom: 2px solid #333; 
+    padding-bottom: 2px; 
+    width: 25px; 
+}
+
+.post-date-right .month {
+    font-size: 16px;
+    left: 10px; 
+    top: 40px; 
+    width: 25px; 
+}
+
+/* --- 5. Năm (.year) (Nằm bên phải) --- */
+.post-date-right .year {
+    font-size: 18px; 
+    font-weight: 500; 
+    left: 40px; 
+    top: 28px; 
+    width: 20px; 
+}
