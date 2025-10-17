@@ -6919,3 +6919,66 @@ a.to-the-top > * {
         padding: 0 0;
     }
 }
+/*------------------------------ Responsive ------------------------------*/
+
+@media (max-width: 700px) {
+
+    /* Giảm padding header */
+    .header-inner {
+        padding: 0 10px;
+    }
+
+    /* Flex container gọn hơn */
+    .header-titles-wrapper {
+        gap: 5px;
+    }
+
+    /* Logo nhỏ hơn */
+    .title-edit {
+        padding: 15px 8px;
+    }
+
+    /* Home button nhỏ hơn */
+    .home-button {
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+
+    /* Search nhỏ hơn */
+    .header-search-form .search-form .search-field {
+        width: 120px;
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+    .header-search-form .search-form .search-submit {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    /* Ẩn text Search trên mobile, chỉ còn icon */
+    .search-toggle .toggle-text {
+        display: none;
+    }
+
+    /* Menu toggle chỉ hiển thị trên mobile */
+    .desktop-nav-toggle,
+    .desktop-search-toggle {
+        display: none;
+    }
+
+    .mobile-nav-toggle,
+    .mobile-search-toggle {
+        display: inline-flex;
+    }
+}
+
+/* Rút gọn text account trên mobile */
+@media (max-width: 500px) {
+    .account-toggle .account-text {
+        display: none;
+    }
+}
+.primary-menu reset-list-style{
+	color: white !important;
+}
