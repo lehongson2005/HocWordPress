@@ -6607,7 +6607,7 @@ a.to-the-top > * {
 
 @media (min-width: 700px) {
     body:not(.singular) main > article:first-of-type {
-              padding: 20px !important;
+              padding: 0px 10px 20px 20xp !important;
 			  background-color: white;
     }
 }
@@ -6639,3 +6639,145 @@ a.to-the-top > * {
 }
 
 
+/*----------------------------------------chinh sua bài viết----------------------------------------*/
+/* --- Cấu trúc tổng thể của bài viết trong danh sách --- */
+/* Thiết lập Flexbox để Ngày, Kẻ dọc, và Nội dung nằm ngang */
+.custom-post-item {
+	/* Quan trọng: Bỏ padding/border thừa */
+	border: none;
+	position: static;
+	display: block;
+	/* Canh giữa khối bài viết trên trang */
+	margin: 10px 0 0 100px; /* 15px trên dưới, auto trái phải */
+	/* Giới hạn chiều rộng để canh giữa hoạt động */
+	max-width: 550px; /* Tăng max-width lên chút để khối trắng nằm giữa */
+	padding-bottom: 10px;
+}
+
+
+.full-link-wrap {
+	display: block;
+	text-decoration: none;
+	position: static;
+}
+
+.custom-post-wrap {
+	/* Khối Màu Trắng - Là khối được nhấp vào */
+	display: flex;
+	background: #ffffff;
+	box-shadow: rgba(50, 50, 93, 0.25) 2px 2px 9px -1px, rgba(0, 0, 0, 0.3) 0px 1px 8px -1px;
+	align-items: center;
+
+	/* Đảm bảo chiều rộng đồng nhất và phù hợp với max-width của cha */
+	width: 100%; /* Chiếm toàn bộ không gian của .custom-post-item */
+	max-width: 500px; /* Vẫn giữ giới hạn chiều rộng nội tại */
+	height: 150px;
+	padding: 25px;
+
+	gap: 30px;
+	cursor: pointer;
+}
+
+/* ======================================= */
+/* CÁC THIẾT LẬP NỘI DUNG */
+/* ======================================= */
+
+/* --- Cột Ngày/Tháng --- */
+.custom-post-date {
+	text-align: center;
+	/* Dùng Flexbox/Padding để căn lề thay vì Margin lớn */
+	min-width: 60px;
+	padding-right: 5px;
+}
+
+.custom-post-date .day-large {
+	font-size: 40px;
+	font-family: Didot;
+	font-weight: bold;
+	line-height: 1;
+	color: #000000;
+	padding-bottom: 5px;
+}
+
+.custom-post-date .month-small {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #666;
+	line-height: 1;
+	margin-top: 5px;
+	/* Loại bỏ gạch chân nếu có */
+	text-decoration: none !important;
+}
+
+/* --- Đường kẻ dọc phân chia --- */
+.custom-post-divider {
+	width: 2px;
+	background-color: #000000;
+	height: 100px;
+}
+
+/* --- Cột Nội dung (Tiêu đề và Tóm tắt) --- */
+.custom-post-content {
+	/* Đảm bảo nội dung chiếm hết không gian còn lại */
+	flex-grow: 1;
+}
+
+.custom-post-content .entry-title {
+	margin: 0 0 5px 0;
+	font-size: 20px;
+	font-weight: 700;
+	color: #0099d8;
+}
+
+.custom-post-content .entry-excerpt {
+	font-size: 14px;
+	font-family: "Roboto Thin", sans-serif;
+	color: #4a4a4a;
+	/* Loại bỏ gạch chân nếu có */
+	text-decoration: none !important;
+}
+.custom-post-content .entry-excerpt .dots-color {
+	/* Màu xanh lam (Giống màu tiêu đề: #0099d8) */
+	display: inline-block;
+	margin-left: 10px;
+	color: #0099d8;
+	transition: transform .5s;
+}
+.custom-post-content .entry-excerpt .dots-color:hover{
+	transform: scale(1.2);
+}
+
+/* Ẩn các thành phần metadata và nội dung gốc của theme */
+.custom-post-item .post-inner,
+.custom-post-item .section-inner {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.custom-post-wrap {
+		/* Cho phép khối co giãn hết cỡ trên di động */
+		max-width: 90%;
+		height: auto;
+		padding: 15px; /* Giảm padding */
+
+		/* Chuyển sang xếp dọc để tránh nội dung bị co lại */
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.custom-post-date {
+		/* Đưa Ngày/Tháng về căn trái khi xếp dọc */
+		text-align: left;
+		padding-bottom: 10px;
+		min-width: auto;
+	}
+
+	.custom-post-date .day-large {
+		font-size: 30px; /* Giảm cỡ chữ ngày */
+	}
+
+	.custom-post-divider {
+		display: none; /* Ẩn kẻ dọc trên di động */
+	}
+}
+/*----------------------------------------end----------------------------------------*/
