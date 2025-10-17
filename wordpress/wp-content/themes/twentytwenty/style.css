@@ -7264,3 +7264,145 @@ a.to-the-top > * {
     top: 28px; 
     width: 20px; 
 }
+/* --- CONTAINER CHÍNH CHO PHẦN CHUYỂN TIẾP --- */
+.pagination-single {
+    margin-top: 40px !important; /* Thêm khoảng cách với nội dung phía trên */
+    border-top: 2px solid #eee !important; /* Đường viền phía trên */
+    padding-top: 20px !important;
+}
+
+/* Bố cục Flex cho 2 link (Previous và Next) */
+.pagination-single-inner {
+    display: flex !important;
+    flex-direction: column !important; /* Xếp Previous và Next theo chiều dọc */
+    gap: 1px !important; /* Khoảng cách giữa 2 link */
+}
+
+/* --- ĐỊNH DẠNG TỪNG MỤC CHUYỂN TIẾP (Previous/Next) --- */
+.navigation-item {
+    display: flex !important; /* Dùng Flexbox để căn chỉnh Ngày tháng và Tiêu đề */
+    align-items: center !important;
+    text-decoration: none !important;
+    color: #333 !important;
+    padding: 15px 0 !important;
+    border-bottom: 1px solid #eee !important; /* Đường kẻ phân cách từng bài viết */
+    transition: background-color 0.2s !important;
+    font-family: Arial, sans-serif !important;
+    
+    /* QUAN TRỌNG: CĂN CHỈNH CHUNG VỀ TRÁI VÀ ĐI THEO HƯỚNG: Ngày -> Tiêu đề */
+    width: 100% !important; 
+    flex-direction: row !important; 
+    justify-content: flex-start !important;
+}
+
+.navigation-item:hover {
+    background-color: #f9f9f9 !important;
+}
+
+/* --- KHỐI NGÀY THÁNG (03/08/18) - Định dạng chung --- */
+.post-date-nav {
+    display: flex !important;
+    flex-direction: column !important; /* Xếp Ngày/Tháng theo chiều dọc */
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* Thiết lập chiều rộng cố định để các ngày thẳng hàng */
+    width: 60px !important; 
+    flex-shrink: 0 !important; 
+    position: relative !important; 
+    
+    /* CĂN CHỈNH VỊ TRÍ VÀ ĐƯỜNG VIỀN CHUNG (Tất cả đều nằm bên trái và có border-right) */
+    border-right: 1px solid #ddd !important; 
+    border-left: none !important; 
+    margin-right: 20px !important;
+    padding-right: 20px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.nav-day, .nav-month {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    color: #000 !important;
+}
+
+/* Gạch ngang phân cách Ngày và Tháng */
+.nav-day {
+    border-bottom: 2px solid #000 !important;
+    padding-bottom: 2px !important;
+    width: 30px !important; 
+    text-align: center !important;
+}
+
+.nav-month {
+    margin-top: 2px !important;
+    width: 30px !important;
+    text-align: center !important;
+    position: relative !important;
+    padding-left: 2px !important;
+}
+
+/* Tạo hiệu ứng Năm bên cạnh Tháng (dùng vị trí tuyệt đối trong khối nav-month) */
+.post-date-nav .nav-year {
+    position: absolute !important; 
+    font-size: 0.9rem !important;
+    font-weight: normal !important;
+    color: #777 !important;
+    left: 45px !important; /* Vị trí Year luôn nằm bên phải Month */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    line-height: 1 !important;
+}
+
+/* --- KHỐI TIÊU ĐỀ --- */
+.title-nav {
+    flex-grow: 1 !important; /* Chiếm hết phần không gian còn lại */
+    font-size: 1.2rem !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    padding: 0 15px !important; /* Khoảng đệm cho tiêu đề */
+    text-align: left !important; /* Tiêu đề căn trái */
+}
+
+/* Ẩn Mũi tên mặc định */
+.arrow-nav {
+    display: none !important; 
+}
+
+
+/* LOẠI BỎ HẾT MỌI CĂN CHỈNH KHÁC CHO PREVIOUS VÀ NEXT POST */
+/* Ép buộc Previous Post (Bóng đá) căn trái */
+.previous-post {
+    flex-direction: row !important; 
+    justify-content: flex-start !important;
+}
+
+.previous-post .title-nav {
+    text-align: left !important;
+}
+
+/* Ép buộc Next Post (Tin tức) căn trái */
+.next-post {
+    flex-direction: row !important; 
+    justify-content: flex-start !important;
+}
+
+.next-post .title-nav {
+    text-align: left !important;
+}
+
+.next-post .post-date-nav {
+    /* Đảm bảo border-right (căn trái) */
+    border-right: 1px solid #ddd !important; 
+    border-left: none !important; 
+    margin-right: 20px !important;
+    padding-right: 20px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+@media (min-width: 700px) {
+    .pagination-single a + a {
+        margin: 0 0 0 0 !important;
+    }
+}
