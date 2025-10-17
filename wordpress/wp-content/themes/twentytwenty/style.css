@@ -6990,3 +6990,203 @@ a.to-the-top > * {
     display: none !important; /* Vô hiệu hóa cấu trúc cũ nếu cần */
 }
 
+/* ==========================================================
+   CSS CHO HEADER MẪU CUỐI CÙNG (Dùng !important)
+   ========================================================== */
+
+/* 1. KHỐI BAO NGOÀI (BACKGROUND) */
+
+/* Thiết lập màu nền xanh đậm cho header (cả thanh trên cùng và phần dưới) */
+#site-header {
+    background-color: #00796b !important; /* Màu xanh đậm bao quanh */
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Khối bao bọc header content: Tạo nền trắng và căn chỉnh giữa */
+.header-inner.section-inner {
+    padding: 20px 0 !important; /* Khoảng cách trên và dưới cho khối content */
+    max-width: 100% !important;
+}
+
+.header-custom-blocks-wrapper {
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: space-between !important;
+    width: 100% !important;
+    max-width: 1050px !important; /* Giảm max-width để khối hẹp lại như mẫu */
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background-color: white !important; /* Nền trắng cho thanh chứa các thành phần */
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important; 
+    min-height: 40px !important; 
+}
+
+/* 2. KHỐI 1: Group C & Home */
+.header-group-c-home {
+    display: flex !important;
+    align-items: stretch !important; 
+    background-color: #f0f0f0 !important; 
+    border-radius: 4px 0 0 4px !important; /* Chỉ bo góc bên trái */
+    overflow: hidden !important;
+    margin-right: 15px !important;
+    height: 40px !important; 
+}
+
+.header-group-c, .header-home-nav .home-link {
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 0 15px !important;
+}
+
+.header-group-c {
+    background-color: #e0e0e0 !important; 
+    color: #555 !important;
+    border-right: 1px solid #ccc !important;
+}
+
+.header-home-nav .home-link {
+    background-color: #e8e8e8 !important; 
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+
+/* 3. KHỐI 2: Thanh tìm kiếm & Submit */
+.header-search-block {
+    flex-grow: 1 !important; 
+    max-width: 350px !important; 
+    margin-right: 30px !important; 
+}
+
+.search-form-custom {
+    display: flex !important;
+    align-items: center !important;
+    height: 40px !important; 
+    border: 1px solid #ccc !important; 
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}
+
+.search-form-custom .search-field {
+    border: none !important;
+    padding: 8px 10px !important;
+    flex-grow: 1 !important;
+    font-size: 14px !important;
+    height: 100% !important;
+    background-color: white !important; 
+}
+
+.search-form-custom .search-submit {
+    background-color: #f0f0f0 !important; 
+    color: #555 !important;
+    border: none !important;
+    padding: 0 15px !important; 
+    font-size: 14px !important;
+    height: 100% !important;
+    border-left: 1px solid #ccc !important; 
+    text-transform: uppercase !important; 
+}
+
+/* 4. KHỐI 3: Menu và Icons */
+.header-nav-block {
+    display: flex !important;
+    align-items: center !important;
+    margin-right: auto !important; 
+    padding-left: 30px !important; 
+    background-color: transparent !important; 
+}
+
+/* Menu chính (Thể thao, Khoa học, Tin tức) */
+.header-nav-block .primary-menu {
+    display: flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.header-nav-block .primary-menu li {
+    margin-right: 20px !important;
+}
+
+.header-nav-block .primary-menu a {
+    text-decoration: none !important;
+    color: #a0a0a0 !important; /* MÀU CHỮ NHẠT */
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    padding: 0 !important;
+}
+
+/* Căn chỉnh các icon (Menu 3 chấm và Search kính lúp) */
+.header-nav-block .icon-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important; 
+    line-height: 1 !important; 
+}
+
+.header-nav-block .icon-item .toggle {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.header-nav-block .icon-item svg {
+    width: 20px !important; 
+    height: 20px !important;
+    fill: #a0a0a0 !important; /* Màu icon nhạt */
+}
+
+.header-nav-block .icon-item .menu-label,
+.header-nav-block .icon-item .search-label {
+    font-size: 10px !important;
+    color: #a0a0a0 !important;
+    margin-top: 2px !important;
+}
+
+/* Điều chỉnh lại vị trí của icon Search (kính lúp) */
+.header-nav-block .header-search-icon {
+    margin-left: 30px !important; 
+    margin-right: 20px !important;
+}
+
+/* 5. KHỐI 4: Account */
+.header-account-block {
+    margin-left: 20px !important;
+}
+
+.header-account-block .account-icon-wrap svg {
+    width: 28px !important;
+    height: 28px !important;
+    fill: #555 !important;
+    margin-top: 5px !important;
+}
+
+.header-account-block .account-text {
+    font-size: 12px !important;
+    margin-top: 0 !important;
+    color: #555 !important;
+}
+
+/* 6. Loại bỏ xung đột CSS của theme TWENTY TWENTY */
+
+/* Vô hiệu hóa các nút search và nav toggle mặc định của TWENTY TWENTY */
+.toggle.search-toggle.mobile-search-toggle,
+.toggle.nav-toggle.mobile-nav-toggle {
+    display: none !important;
+}
+
+/* Xóa bỏ CSS cũ của header gốc */
+.header-titles-wrapper, 
+.header-titles, 
+.header-navigation-wrapper {
+    display: none !important; 
+}
