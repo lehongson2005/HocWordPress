@@ -6908,3 +6908,14 @@ a.to-the-top > * {
 }
 /*-----------------end------------*/
 
+@media (min-width: 700px) {
+    .header-inner {
+        padding: 0 0 !important;
+    }
+}
+
+@media (min-width: 700px) {
+    .header-inner {
+        padding: 0 0;
+    }
+}
