@@ -7909,7 +7909,8 @@ comments-list a{
  */
 .homepage-three-column-layout.section-inner {
     max-width: none; /* Bỏ giới hạn chiều rộng tối đa */
-padding: 20px;
+    padding-left: 20px;  /* Giữ lại một chút lề nhỏ bên trái */
+    padding-right: 20px; /* Giữ lại một chút lề nhỏ bên phải */
 }
 
 /* --- Bố cục 3 cột cho Trang chủ --- */
@@ -7925,16 +7926,7 @@ padding: 20px;
     gap: 30px; /* Khoảng cách giữa các cột */
 }
 
-/* --- Cột 1 & 3 Chung --- */
-.homepage-sidebar-left .widget,
-.homepage-sidebar-right .widget {
-    /* Bạn có thể thêm nền hoặc padding ở đây nếu muốn */
-    /* ví dụ:
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    */
-}
+/* --- Cột 1 & 3 Chung (Tiêu đề) --- */
 .homepage-sidebar-left .widget-title,
 .homepage-sidebar-right .widget-title {
     font-size: 22px; /* Cỡ chữ cho tiêu đề widget */
@@ -7946,17 +7938,18 @@ padding: 20px;
     color: #333;
 }
 
-/* --- Cột 1: Bài viết mới nhất (Theo ảnh) --- */
+/* ================================================= */
+/* --- CSS CHO TRANG CHỦ (KHÔNG TÌM KIẾM) --- */
+/* ================================================= */
+
+/* --- Cột 1 (Trang chủ): Bài viết mới nhất (8 mục) --- */
 .homepage-recent-posts ol.recent-posts-numbered-list {
     list-style: none; /* Bỏ list-style mặc định */
     counter-reset: recent-posts-counter; /* Bắt đầu bộ đếm */
     padding-left: 0;
     margin: 0;
-    /* === THÊM MỚI: Chia danh sách thành 2 cột === */
     column-count: 2;
     column-gap: 20px; /* Khoảng cách giữa 2 cột mới */
-
-    /* === ĐÃ SỬA: Thêm đường kẻ dọc ở giữa === */
     column-rule: 1px solid #eee; /* Đường kẻ dọc */
 }
 .homepage-recent-posts ol.recent-posts-numbered-list li {
@@ -7964,26 +7957,21 @@ padding: 20px;
     display: flex;
     align-items: flex-start; /* Căn lề trên cùng */
     font-size: 16px; /* Cỡ chữ tiêu đề */
-
-    /* === ĐÃ SỬA: Thêm padding và border (giống ảnh) === */
     margin-bottom: 18px; /* Khoảng cách giữa các hàng */
     padding-bottom: 18px; /* Thêm khoảng đệm bên trên đường border */
     border-bottom: 1px solid #eee; /* Thêm border dưới giống ảnh */
-    
-    /* === THÊM MỚI: Đảm bảo mỗi mục nằm gọn trong 1 cột === */
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
     break-inside: avoid-column;
 }
 
-/* === THÊM MỚI: Loại bỏ border cho mục cuối cùng của mỗi cột (4 và 8) === */
 .homepage-recent-posts ol.recent-posts-numbered-list li:nth-child(4),
 .homepage-recent-posts ol.recent-posts-numbered-list li:nth-child(8) {
     border-bottom: none;
     margin-bottom: 0; /* Xóa luôn margin để chúng căn đều */
 }
 
-/* Tạo số thứ tự lớn, giống ảnh */
+/* Số thứ tự lớn, giống ảnh */
 .homepage-recent-posts ol.recent-posts-numbered-list li::before {
     content: counter(recent-posts-counter); /* Hiển thị số */
     font-size: 36px; /* Cỡ chữ số */
@@ -8006,7 +7994,7 @@ padding: 20px;
 }
 
 
-/* --- Cột 3: Bình luận mới nhất (Theo ảnh) --- */
+/* --- Cột 3 (Trang chủ): Bình luận mới nhất (Đơn giản) --- */
 .homepage-recent-comments ul.recent-comments-list {
     list-style: none;
     padding: 0;
@@ -8057,4 +8045,307 @@ padding: 20px;
         margin-top: 30px; /* Thêm khoảng cách khi xếp chồng */
     }
 }
-  
+
+/* ========================================= */
+/* --- CSS MỚI CHO TRANG TÌM KIẾM --- */
+/* ========================================= */
+
+/* --- Tiêu đề chung cho Cột 1 & 3 (Trang Tìm kiếm) --- */
+.custom-col .section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #eee;
+    color: #333;
+}
+
+/* --- Cột 1 (Trang Tìm Kiếm): Trang mới nhất (Có ảnh) --- */
+.latest-post-item {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 25px;
+}
+.latest-post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.latest-post-heading {
+    margin: 0;
+}
+.latest-post-heading a {
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+    line-height: 1.4;
+}
+.latest-post-heading a:hover {
+    color: #0073aa;
+}
+.latest-post-thumbnail {
+    display: block;
+    margin-top: 15px;
+}
+.latest-post-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.latest-post-excerpt {
+    font-size: 15px;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+.latest-post-category {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* --- Cột 3 (Trang Tìm Kiếm): Bình luận (Có Avatar) --- */
+.styled-comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.styled-comment-item {
+    display: flex; /* Dùng flexbox cho avatar + nội dung */
+    gap: 15px; /* Khoảng cách giữa avatar và nội dung */
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.styled-comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.comment-avatar-wrap .avatar {
+    border-radius: 50%; /* Bo tròn avatar */
+}
+.comment-body-wrap {
+    flex: 1; /* Cho nội dung lấp đầy không gian còn lại */
+}
+.comment-author-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+.comment-text-content {
+    font-size: 15px;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+}
+/* CSS cho bình luận con (reply) */
+.styled-comment-list ul.children {
+    list-style: none;
+    padding-left: 20px; /* Thụt lề các reply */
+    margin-top: 15px;
+}
+.styled-comment-list ul.children .styled-comment-item {
+    border-bottom: none; /* Bỏ border cho reply */
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    gap: 10px; /* Giảm khoảng cách cho reply */
+}
+
+/* 1. Container bên ngoài (màu vàng nhạt) */
+.search-bar.container {
+    background-color: #f7f3e8; /* Màu nền vàng nhạt */
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin-top: 30px; /* Khoảng cách với nội dung bên trên */
+    margin-bottom: 30px; /* Khoảng cách với nội dung bên dưới */
+}
+
+/* 2. Form tìm kiếm (ô màu trắng) */
+.search-bar .search-form {
+    display: flex; /* Dùng flexbox để icon, input, button nằm ngang */
+    align-items: center;
+    background-color: #ffffff; /* Nền trắng */
+    border-radius: 8px;
+    padding: 10px 15px;
+    max-width: 700px; /* Giới hạn chiều rộng của thanh tìm kiếm */
+    margin: 0 auto; /* Căn giữa thanh tìm kiếm */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Thêm bóng mờ */
+}
+
+/* 3. Label bọc input (quan trọng cho icon) */
+.search-bar .search-form label {
+    flex: 1; /* Cho label chiếm hết không gian còn lại */
+    display: flex;
+    align-items: center;
+    position: relative; /* Cần thiết để định vị icon */
+}
+
+/* 4. Input nhập liệu */
+.search-bar .search-field {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-position:20px;
+    font-size: 16px;
+    background-color: transparent; /* Trong suốt để thấy nền trắng của .search-form */
+}
+/* 4b. Icon tìm kiếm (dùng SVG làm background-image) */
+.search-bar .search-field {
+    /* Icon SVG Kính lúp (màu xám) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236c757d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position:-5px ; /* Đặt icon cách lề trái 10px */
+    background-size: 20px 20px; /* Kích thước icon */
+}
+
+/* 5. Nút submit "Search" (màu xanh) */
+.search-bar .search-submit {
+    background-color: #28a745; /* Màu xanh lá (giống ảnh) */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.search-bar .search-submit:hover {
+    background-color: #218838; /* Màu xanh đậm hơn khi hover */
+}
+
+/* ========================================= */
+/* --- CSS MỚI CHO PHẦN LATEST NEWS (TRANG TÌM KIẾM) --- */
+/* ========================================= */
+.latest-news-section {
+    margin-top: 40px; /* Khoảng cách với 3 cột bên trên */
+    padding-top: 30px;
+    border-top: 1px solid #eee; /* Đường kẻ phân cách */
+    /* Thêm giới hạn chiều rộng để không bị quá dài */
+    max-width: 900px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.latest-news-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.latest-news-timeline {
+    list-style: none;
+    padding-left: 30px; /* Tạo không gian cho đường kẻ và chấm tròn */
+    margin: 0;
+    position: relative; /* Cần thiết để định vị đường kẻ dọc */
+}
+
+/* Đường kẻ dọc của timeline */
+.latest-news-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; /* Căn đường kẻ với tâm của chấm tròn */
+    top: 5px; /* Bắt đầu từ dưới chấm tròn đầu tiên một chút */
+    bottom: 5px; /* Kết thúc trên chấm tròn cuối cùng một chút */
+    width: 2px;
+    background-color: #e0e0e0; /* Màu đường kẻ */
+}
+
+.news-item {
+    position: relative; /* Cần để định vị chấm tròn */
+    margin-bottom: 30px;
+}
+.news-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Chấm tròn của timeline */
+.news-item::before {
+    content: '';
+    position: absolute;
+    left: -23px; /* Đẩy chấm tròn ra ngoài padding-left của ul */
+    top: 5px; /* Căn chỉnh chấm tròn với dòng đầu tiên của tiêu đề */
+    width: 10px; /* Kích thước chấm tròn */
+    height: 10px;
+    background-color: #fff; /* Màu nền trắng */
+    border: 3px solid #007bff; /* Viền xanh */
+    border-radius: 50%;
+    z-index: 1; /* Nằm trên đường kẻ dọc */
+}
+
+.news-content {
+    /* Không cần CSS đặc biệt ở đây trừ khi muốn thêm nền, padding */
+}
+
+.news-header {
+    display: flex; /* Dùng flex để xếp Tiêu đề và Ngày */
+    justify-content: space-between; /* Đẩy ngày sang phải */
+    align-items: baseline; /* Căn đáy Tiêu đề và Ngày */
+    margin-bottom: 8px;
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    flex: 1; /* Cho tiêu đề chiếm không gian */
+    padding-right: 15px; /* Khoảng cách với ngày */
+}
+.news-title a {
+    text-decoration: none;
+    color: #007bff; /* Màu xanh cho tiêu đề */
+}
+.news-title a:hover {
+    text-decoration: underline;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #888;
+    white-space: nowrap; /* Không cho ngày xuống dòng */
+    flex-shrink: 0; /* Không co ngày lại */
+}
+
+.news-excerpt {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+.news-excerpt p { /* Style cho thẻ <p> bên trong excerpt */
+    margin-bottom: 0;
+}
+
+/* Responsive cho Latest News */
+@media (max-width: 600px) {
+    .news-header {
+        flex-direction: column; /* Xếp chồng Tiêu đề và Ngày */
+        align-items: flex-start; /* Căn trái */
+    }
+    .news-date {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+    .latest-news-timeline {
+        padding-left: 25px; /* Giảm padding cho màn hình nhỏ */
+    }
+     .news-item::before {
+        left: -18px; /* Điều chỉnh vị trí chấm tròn */
+    }
+    .latest-news-timeline::before {
+        left: 30px; /* Điều chỉnh vị trí đường kẻ */
+    }
+}
+.latest-news-timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px !important;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background-color: #e0e0e0;}
