@@ -132,7 +132,53 @@ get_header();
             ?>
         </div>
 
-       
+        <!-- ===== CỘT 3: BÌNH LUẬN MỚI NHẤT ===== -->
+        <aside class="homepage-sidebar-right" aria-label="Bình luận mới nhất">
+            <div class="widget homepage-recent-comments">
+                <h2 class="widget-title">
+                    <?php _e( 'Comments', 'twentytwenty' ); ?>
+                </h2>
+                
+                <?php
+                // Lấy 5 bình luận mới nhất đã được duyệt
+                $recent_comments = get_comments( array(
+                    'number' => 5,
+                    'status' => 'approve',
+                    'post_status' => 'publish',
+                ) );
+
+                if ( ! empty( $recent_comments ) ) :
+                ?>
+                    <ul class="recent-comments-list">
+                        <?php
+                        foreach ( $recent_comments as $comment ) :
+                        ?>
+                            <li class="recent-comment-item">
+                                
+                                <?php _e( 'viết:', 'twentytwenty' ); ?>
+                                <a href="<?php echo esc_url( get_comment_link( $comment ) ); ?>">
+                                    <?php
+                                    // Cắt ngắn nội dung bình luận
+                                    echo wp_trim_words( $comment->comment_content, 7, '...' );
+                                    ?>
+                                </a>
+                            </li>
+                        <?php
+                        endforeach;
+                        ?>
+                    </ul>
+                <?php else : ?>
+                    <p><?php _e( 'Chưa có bình luận nào.', 'twentytwenty' ); ?></p>
+                <?php endif; ?>
+
+                 <?php
+                // Fallback nếu bạn muốn dùng Widget Area sau này
+                // if ( is_active_sidebar( 'homepage-right-sidebar' ) ) {
+                //     dynamic_sidebar( 'homepage-right-sidebar' );
+                // }
+                ?>
+            </div>
+        </aside>
 
     </div>
     <!-- ===== KẾT THÚC CONTAINER 3 CỘT ===== -->
