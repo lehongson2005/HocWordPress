@@ -7805,3 +7805,100 @@ comments-list a{
 }
 
 
+/* --- CSS cho Cột 3 (Bài viết mới - Dựa trên ảnh) --- */
+.sidebar-right .widget {
+    background-color: #4DB6AC; /* Màu xanh teal */
+    padding: 25px;
+    border-radius: 8px;
+    color: white;
+}
+.sidebar-right .widget-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.sidebar-right .recent-posts-custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-right .recent-post-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.sidebar-right .recent-post-item:last-of-type {
+    border-bottom: none;
+}
+
+/* === BẮT ĐẦU THAY ĐỔI CSS NGÀY THÁNG NĂM === */
+
+/* Container chính cho ngày tháng (hàng ngang) */
+.sidebar-right .recent-post-date {
+    flex-shrink: 0;
+    display: flex; /* Hàng ngang (row) là mặc định */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 8px; /* Khoảng cách giữa khối (Ngày/Tháng) và khối (Năm) */
+}
+
+/* Khối bên trái: Chứa Ngày và Tháng xếp chồng */
+.sidebar-right .date-day-month-stack {
+    display: flex;
+    flex-direction: column; /* Xếp chồng Ngày và Tháng */
+    align-items: center;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+/* Ngày (ở trên) */
+.sidebar-right .date-day {
+    font-size: 18px;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px;
+}
+
+/* Tháng (ở dưới) */
+.sidebar-right .date-month {
+    font-size: 16px;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+/* Năm (bên phải) */
+.sidebar-right .date-year {
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 1; /* Rõ hơn */
+}
+/* === KẾT THÚC THAY ĐỔI CSS === */
+
+.sidebar-right .recent-post-title-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+.sidebar-right .recent-post-title-link:hover {
+    text-decoration: underline;
+}
+
+.sidebar-right .view-all-posts-button {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.sidebar-right .view-all-posts-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
