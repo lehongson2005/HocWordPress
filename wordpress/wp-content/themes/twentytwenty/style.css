@@ -8351,7 +8351,8 @@ comments-list a{
     width: 2px;
     background-color: #e0e0e0;}
 
-
+.footer-widgets-wrapper {
+    margin-left: -25px !important;}
 
 
 
