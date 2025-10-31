@@ -6780,4 +6780,205 @@ a.to-the-top > * {
 		display: none; /* Ẩn kẻ dọc trên di động */
 	}
 }
-/*----------------------------------------end----------------------------------------*/
+/*---------------------------end------------------------------*/
+
+
+/*------------------------------chinh sua header------------------------------*/
+.color-header{
+	background: rgba(213, 213, 213, 0.72) !important;
+}
+.header-search-form{
+	margin-left: 20px;
+}
+/* Thiết lập kiểu dáng cho trường nhập liệu (Search) */
+.header-search-form .search-form .search-field {
+	/* Đảm bảo field có viền và nền theo mẫu */
+	background-color: #ffffff; /* Nền trắng */
+	border: 1px solid #ccc; /* Viền xám nhạt */
+	padding: 8px 10px;
+	height: 38px; /* Chiều cao cố định */
+	font-size: 14px;
+	border-radius: 4px; /* Bo góc nhẹ */
+	width: 200px; /* Chiều rộng của ô search */
+}
+
+/* Thiết lập kiểu dáng cho nút Submit */
+.header-search-form .search-form .search-submit {
+	/* Tạo kiểu cho nút Submit */
+	background-color: #f7f7f7; /* Nền xám nhạt */
+	border: 1px solid #ccc;
+	color: #444; /* Màu chữ xám đậm */
+	padding: 8px 15px;
+	height: 38px;
+	font-weight: normal;
+	font-size: 14px;
+	border-radius: 4px;
+	margin-left: 5px; /* Khoảng cách với ô search */
+	cursor: pointer;
+	text-transform: none !important;
+}
+.title-edit{
+	margin-left: 10px;
+	padding: 26px 10px;
+	background-color: rgba(131, 131, 131, 0.63);
+}
+
+/* Custom Account Dropdown Styles */
+/* CONTAINER: Căn chỉnh thẳng hàng với Menu và Search */
+/* CONTAINER: Căn chỉnh thẳng hàng với Menu và Search */
+/* CSS */
+.account-toggle-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*padding: 0 10px;*/
+	margin-top: 3px;
+
+}
+
+.account-toggle {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none !important;
+	color: #333 !important;
+	cursor: pointer;
+}
+
+.account-icon-wrap {
+	display: flex;
+	flex-direction: column; /* xếp dọc icon và chữ */
+	align-items: center;
+	margin-top: 10px;
+}
+
+.account-toggle svg {
+	width: 30px;
+	height: 28px;
+	fill: #333;
+	margin: 0 auto;
+
+}
+
+.account-toggle .account-text {
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+
+/* Định vị và ẩn menu sổ xuống */
+.account-dropdown-menu {
+	display: none; /* Mặc định ẩn */
+	position: absolute;
+	top: 100%;
+	right: 0;
+	min-width: 180px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+	z-index: 999;
+	padding: 5px 0;
+}
+
+.account-dropdown-menu a {
+	display: block;
+	padding: 10px 15px;
+	text-decoration: none;
+	color: #333;
+	font-size: 1.5rem;
+	white-space: nowrap;
+}
+
+.account-dropdown-menu a:hover {
+	background-color: #f0f0f0;
+}
+
+/* Hiển thị menu khi có class 'active' */
+.account-icon-dropdown.active .account-dropdown-menu {
+	display: block;
+}
+.account-toggle-wrapper {
+	/* Đảm bảo nó cùng dòng với Search và Menu */
+	display: flex;
+	align-items: center;
+	position: relative;
+
+}
+.header-account{
+	margin-bottom: 20px;
+}
+/*-----------------end------------*/
+
+@media (min-width: 700px) {
+    .header-inner {
+        padding: 0 0 !important;
+    }
+}
+
+@media (min-width: 700px) {
+    .header-inner {
+        padding: 0 0;
+    }
+}
+/*------------------------------ Responsive ------------------------------*/
+
+@media (max-width: 700px) {
+
+    /* Giảm padding header */
+    .header-inner {
+        padding: 0 10px;
+    }
+
+    /* Flex container gọn hơn */
+    .header-titles-wrapper {
+        gap: 5px;
+    }
+
+    /* Logo nhỏ hơn */
+    .title-edit {
+        padding: 15px 8px;
+    }
+
+    /* Home button nhỏ hơn */
+    .home-button {
+        padding: 4px 8px;
+        font-size: 13px;
+    }
+
+    /* Search nhỏ hơn */
+    .header-search-form .search-form .search-field {
+        width: 120px;
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+    .header-search-form .search-form .search-submit {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    /* Ẩn text Search trên mobile, chỉ còn icon */
+    .search-toggle .toggle-text {
+        display: none;
+    }
+
+    /* Menu toggle chỉ hiển thị trên mobile */
+    .desktop-nav-toggle,
+    .desktop-search-toggle {
+        display: none;
+    }
+
+    .mobile-nav-toggle,
+    .mobile-search-toggle {
+        display: inline-flex;
+    }
+}
+
+/* Rút gọn text account trên mobile */
+@media (max-width: 500px) {
+    .account-toggle .account-text {
+        display: none;
+    }
+}
+.primary-menu reset-list-style{
+	color: white !important;
+}
