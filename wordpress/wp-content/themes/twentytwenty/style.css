@@ -7902,3 +7902,131 @@ comments-list a{
     background-color: rgba(255, 255, 255, 0.4);
 }
 
+/* === THÊM MỚI: Ghi đè để layout rộng hơn === */
+/*
+ * Vấn đề: Lớp .section-inner của theme gốc giới hạn chiều rộng, làm bố cục bị "bóp" lại.
+ * Giải pháp: Chúng ta dùng CSS để ghi đè, làm cho layout này rộng hơn.
+ */
+.homepage-three-column-layout.section-inner {
+    max-width: none; /* Bỏ giới hạn chiều rộng tối đa */
+    padding-left: 20px;  /* Giữ lại một chút lề nhỏ bên trái */
+    padding-right: 20px; /* Giữ lại một chút lề nhỏ bên phải */
+}
+
+/* --- Bố cục 3 cột cho Trang chủ --- */
+.homepage-three-column-layout {
+    display: grid;
+    /* Tỷ lệ cột: Cột 1 (25%), Cột 2 (50%), Cột 3 (25%) */
+    /* * === ĐÃ SỬA === 
+     * Tăng độ rộng Cột 1 (từ 1fr lên 1.5fr) để có không gian cho 2 cột con.
+     * Cột 2 (nội dung) sẽ hẹp lại một chút.
+     * Tỷ lệ cũ: 1fr 2fr 1fr
+     */
+    grid-template-columns: 1.5fr 2fr 1fr;
+    gap: 30px; /* Khoảng cách giữa các cột */
+}
+
+/* --- Cột 1 & 3 Chung --- */
+.homepage-sidebar-left .widget,
+.homepage-sidebar-right .widget {
+    /* Bạn có thể thêm nền hoặc padding ở đây nếu muốn */
+    /* ví dụ:
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    */
+}
+.homepage-sidebar-left .widget-title,
+.homepage-sidebar-right .widget-title {
+    font-size: 22px; /* Cỡ chữ cho tiêu đề widget */
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #eee; /* Đường gạch chân (giống ảnh) */
+    color: #333;
+}
+
+/* --- Cột 1: Bài viết mới nhất (Theo ảnh) --- */
+.homepage-recent-posts ol.recent-posts-numbered-list {
+    list-style: none; /* Bỏ list-style mặc định */
+    counter-reset: recent-posts-counter; /* Bắt đầu bộ đếm */
+    padding-left: 0;
+    margin: 0;
+    /* === THÊM MỚI: Chia danh sách thành 2 cột === */
+    column-count: 2;
+    column-gap: 20px; /* Khoảng cách giữa 2 cột mới */
+
+    /* === ĐÃ SỬA: Thêm đường kẻ dọc ở giữa === */
+    column-rule: 1px solid #eee; /* Đường kẻ dọc */
+}
+.homepage-recent-posts ol.recent-posts-numbered-list li {
+    counter-increment: recent-posts-counter; /* Tăng bộ đếm */
+    display: flex;
+    align-items: flex-start; /* Căn lề trên cùng */
+    font-size: 16px; /* Cỡ chữ tiêu đề */
+
+    /* === ĐÃ SỬA: Thêm padding và border (giống ảnh) === */
+    margin-bottom: 18px; /* Khoảng cách giữa các hàng */
+    padding-bottom: 18px; /* Thêm khoảng đệm bên trên đường border */
+    border-bottom: 1px solid #eee; /* Thêm border dưới giống ảnh */
+    
+    /* === THÊM MỚI: Đảm bảo mỗi mục nằm gọn trong 1 cột === */
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+}
+
+/* === THÊM MỚI: Loại bỏ border cho mục cuối cùng của mỗi cột (4 và 8) === */
+.homepage-recent-posts ol.recent-posts-numbered-list li:nth-child(4),
+.homepage-recent-posts ol.recent-posts-numbered-list li:nth-child(8) {
+    border-bottom: none;
+    margin-bottom: 0; /* Xóa luôn margin để chúng căn đều */
+}
+
+/* Tạo số thứ tự lớn, giống ảnh */
+.homepage-recent-posts ol.recent-posts-numbered-list li::before {
+    content: counter(recent-posts-counter); /* Hiển thị số */
+    font-size: 36px; /* Cỡ chữ số */
+    font-weight: 700; /* Đậm */
+    color: #cecece; /* Màu xám nhạt cho số */
+    line-height: 1;
+    margin-right: 15px;
+    min-width: 25px; /* Đảm bảo số 2 chữ số không làm xô layout */
+    text-align: right; /* Căn phải số */
+}
+.homepage-recent-posts ol.recent-posts-numbered-list li a {
+    text-decoration: none;
+    color: #333; /* Màu tiêu đề */
+    font-weight: 600; /* Hơi đậm 1 chút */
+    line-height: 1.4; /* Giãn dòng cho dễ đọc */
+}
+.homepage-recent-posts ol.recent-posts-numbered-list li a:hover {
+    color: #0073aa; /* Màu link WordPress mặc định khi hover */
+    text-decoration: underline;
+}
+
+
+
+
+/* --- Responsive cho Di động & Tablet --- */
+@media (max-width: 1024px) {
+    .homepage-three-column-layout {
+        /* Xếp chồng 2 cột (Cột 2 và Cột 1/3 xếp dưới) */
+        grid-template-columns: 1fr; /* 1 cột */
+    }
+    
+    /* Thứ tự trên di động/tablet: 1. Nội dung, 2. Cột trái, 3. Cột phải */
+    .homepage-content-center {
+        order: 1;
+    }
+    .homepage-sidebar-left {
+        order: 2;
+        margin-top: 30px; /* Thêm khoảng cách khi xếp chồng */
+    }
+    .homepage-sidebar-right {
+        order: 3;
+        margin-top: 30px; /* Thêm khoảng cách khi xếp chồng */
+    }
+}
+  
