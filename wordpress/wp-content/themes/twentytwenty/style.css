@@ -466,7 +466,7 @@ a:focus {
 
 ul,
 ol {
-	margin: 0 0 3rem 3rem;
+	margin: 0 0 0rem 0em;
 }
 
 ul {
@@ -7911,6 +7911,7 @@ comments-list a{
     max-width: none; /* Bỏ giới hạn chiều rộng tối đa */
     padding-left: 20px;  /* Giữ lại một chút lề nhỏ bên trái */
     padding-right: 20px; /* Giữ lại một chút lề nhỏ bên phải */
+	padding-top: 50px;
 }
 
 /* --- Bố cục 3 cột cho Trang chủ --- */
@@ -8144,7 +8145,7 @@ comments-list a{
 /* CSS cho bình luận con (reply) */
 .styled-comment-list ul.children {
     list-style: none;
-    padding-left: 20px; /* Thụt lề các reply */
+    padding-left: -40px !important; /* Thụt lề các reply */
     margin-top: 15px;
 }
 .styled-comment-list ul.children .styled-comment-item {
@@ -8349,3 +8350,14 @@ comments-list a{
     bottom: 5px;
     width: 2px;
     background-color: #e0e0e0;}
+
+
+
+
+
+
+
+
+
+
+	
