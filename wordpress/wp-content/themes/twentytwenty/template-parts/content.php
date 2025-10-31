@@ -120,7 +120,63 @@ else :
 
         </main>
 
-        
+        <!-- ===== CỘT 3: BÀI VIẾT MỚI NHẤT (sidebar-right) ===== -->
+        <aside class="sidebar-right" aria-label="Bài viết mới nhất">
+            <div class="widget widget_recent_posts_custom">
+                <h2 class="widget-title"><?php _e( 'Recent Posts', 'twentytwenty' ); ?></h2>
+                
+                <?php
+                // Kiểm tra xem sidebar 'right-sidebar' có active không
+                if ( is_active_sidebar( 'right-sidebar' ) ) {
+                    dynamic_sidebar( 'right-sidebar' );
+                } else {
+                    // Fallback: Hiển thị query bài viết mới nhất tùy chỉnh
+                    // Dựa trên thiết kế của bạn (ảnh image_2bf01a.png)
+                    
+                    $recent_posts_query = new WP_Query( array(
+                        'posts_per_page'      => 4, // Số lượng bài viết muốn hiển thị
+                        'post__not_in'        => array( get_the_ID() ), // Loại trừ bài viết hiện tại
+                        'ignore_sticky_posts' => 1,
+                        'post_status'         => 'publish',
+                    ) );
+
+                    if ( $recent_posts_query->have_posts() ) :
+                ?>
+                        <ul class="recent-posts-custom-list">
+                            <?php
+                            while ( $recent_posts_query->have_posts() ) : $recent_posts_query->the_post();
+                            ?>
+                                <li class="recent-post-item">
+                                    <!-- Khối ngày tháng bên trái (giống ảnh bạn gửi) -->
+                                   <div class="recent-post-date">
+                                        <div class="date-day-month-stack">
+                                            <span class="date-day"><?php echo get_the_time('d'); ?></span>
+                                            <span class="date-month"><?php echo get_the_time('m'); ?></span>
+                                        </div>
+                                        <span class="date-year"><?php echo get_the_time('y'); ?></span>
+                                    </div>
+                                    <!-- Tiêu đề bài viết bên phải -->
+                                    <a href="<?php the_permalink(); ?>" class="recent-post-title-link">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </li>
+                            <?php
+                            endwhile;
+                            wp_reset_postdata(); // Khôi phục lại query chính
+                            ?>
+                        </ul>
+                        
+                        <!-- Thêm nút "Xem tất cả" nếu muốn -->
+                        <a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="view-all-posts-button">
+                            <?php _e( 'XEM TẤT CẢ TIN TỨC', 'twentytwenty' ); ?>
+                        </a>
+
+                <?php
+                    endif; // end $recent_posts_query->have_posts()
+                } // end else
+                ?>
+            </div>
+        </aside>
 
     </div>
     <!-- KẾT THÚC CONTAINER FLEXBOX 3 CỘT -->
