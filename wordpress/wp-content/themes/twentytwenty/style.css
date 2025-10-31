@@ -7909,8 +7909,7 @@ comments-list a{
  */
 .homepage-three-column-layout.section-inner {
     max-width: none; /* Bỏ giới hạn chiều rộng tối đa */
-    padding-left: 20px;  /* Giữ lại một chút lề nhỏ bên trái */
-    padding-right: 20px; /* Giữ lại một chút lề nhỏ bên phải */
+padding: 20px;
 }
 
 /* --- Bố cục 3 cột cho Trang chủ --- */
@@ -8007,7 +8006,36 @@ comments-list a{
 }
 
 
-
+/* --- Cột 3: Bình luận mới nhất (Theo ảnh) --- */
+.homepage-recent-comments ul.recent-comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.homepage-recent-comments li.recent-comment-item {
+    font-size: 16px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+.homepage-recent-comments li.recent-comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.homepage-recent-comments .comment-author {
+    font-weight: bold;
+    color: #333;
+    display: inline; /* Hiển thị cùng hàng */
+}
+.homepage-recent-comments li.recent-comment-item a {
+    text-decoration: none;
+    color: #0073aa; /* Màu xanh (giống ảnh) */
+    display: inline; /* Hiển thị trên cùng 1 hàng */
+}
+.homepage-recent-comments li.recent-comment-item a:hover {
+    text-decoration: underline;
+}
 
 /* --- Responsive cho Di động & Tablet --- */
 @media (max-width: 1024px) {
