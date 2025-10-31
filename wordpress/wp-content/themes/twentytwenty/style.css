@@ -6671,7 +6671,7 @@ a.to-the-top > * {
 	/* Đảm bảo chiều rộng đồng nhất và phù hợp với max-width của cha */
 	width: 100%; /* Chiếm toàn bộ không gian của .custom-post-item */
 	max-width: 500px; /* Vẫn giữ giới hạn chiều rộng nội tại */
-	height: 150px;
+	height: 250px;
 	padding: 25px;
 
 	gap: 30px;
@@ -7022,4 +7022,110 @@ a.to-the-top > * {
 
 .search-submit:hover {
 	background-color: #2F8C43 !important;
+}
+.custom-post-thumbnail{
+	width: 100% !important;
+}
+
+/* ======================================= */
+/* CÁC THIẾT LẬP NỘI DUNG */
+/* ======================================= */
+
+/* --- Cột Ngày/Tháng --- */
+.custom-post-date {
+	text-align: center;
+	margin-bottom: auto ;
+	margin-top: 10px;
+	/* Dùng Flexbox/Padding để căn lề thay vì Margin lớn */
+	min-width: 70px;
+}
+
+.custom-post-date .day-large {
+	font-size: 40px;
+	font-family: Didot;
+	font-weight: bold;
+	line-height: 1;
+	color: #000000;
+	padding-bottom: 5px;
+}
+
+.custom-post-date .month-small {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #666;
+	line-height: 1;
+	margin-top: 5px;
+	/* Loại bỏ gạch chân nếu có */
+	text-decoration: none !important;
+}
+
+/* --- Đường kẻ dọc phân chia --- */
+.custom-post-divider {
+	width: 2px;
+	background-color: #000000;
+	height: 100px;
+}
+
+/* --- Cột Nội dung (Tiêu đề và Tóm tắt) --- */
+.custom-post-content {
+	/* Đảm bảo nội dung chiếm hết không gian còn lại */
+	flex-grow: 1;
+}
+
+.custom-post-content .entry-title {
+	margin: 0 0 5px 0;
+	font-size: 20px;
+	font-weight: 700;
+	color: #0099d8;
+}
+
+.custom-post-content .entry-excerpt {
+	font-size: 14px;
+	font-family: "Roboto Thin", sans-serif;
+	color: #4a4a4a;
+	/* Loại bỏ gạch chân nếu có */
+	text-decoration: none !important;
+}
+.custom-post-content .entry-excerpt .dots-color {
+	/* Màu xanh lam (Giống màu tiêu đề: #0099d8) */
+	display: inline-block;
+	margin-left: 10px;
+	color: #0099d8;
+	transition: transform .5s;
+}
+.custom-post-content .entry-excerpt .dots-color:hover{
+	transform: scale(1.2);
+}
+
+/* Ẩn các thành phần metadata và nội dung gốc của theme */
+.custom-post-item .post-inner,
+.custom-post-item .section-inner {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.custom-post-wrap {
+		/* Cho phép khối co giãn hết cỡ trên di động */
+		max-width: 100%;
+		height: auto;
+		padding: 15px; /* Giảm padding */
+
+		/* Chuyển sang xếp dọc để tránh nội dung bị co lại */
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.custom-post-date {
+		/* Đưa Ngày/Tháng về căn trái khi xếp dọc */
+		text-align: left;
+		padding-bottom: 10px;
+		min-width: auto;
+	}
+	.custom-post-date .day-large {
+		font-size: 30px; /* Giảm cỡ chữ ngày */
+	}
+
+	.custom-post-divider {
+		display: none; /* Ẩn kẻ dọc trên di động */
+	}
 }
