@@ -6648,7 +6648,7 @@ a.to-the-top > * {
 	position: static;
 	display: block;
 	/* Canh giữa khối bài viết trên trang */
-	margin: 10px 0 0 100px; /* 15px trên dưới, auto trái phải */
+
 	/* Giới hạn chiều rộng để canh giữa hoạt động */
 	max-width: 550px; /* Tăng max-width lên chút để khối trắng nằm giữa */
 	padding-bottom: 10px;
