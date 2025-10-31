@@ -7406,3 +7406,234 @@ a.to-the-top > * {
         margin: 0 0 0 0 !important;
     }
 }
+
+/* ==== Comment Form Style (Login View) ==== */
+/* 1. Hộp Bao Quanh (Card) - Thay thế .make-post-wrapper */
+#respond {
+    max-width: 580px;
+    margin: 30px auto 20px auto; 
+    background-color: #8e8c8c;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px #b3b3b3 solid; /* Bỏ viền tổng thể, dùng viền cho phần form bên dưới */
+    border-radius: 4px;
+    padding: 0; 
+}
+
+/* 2. Tiêu đề "Make a Post" - Thay thế .make-post-header */
+#respond .comment-reply-title {
+    /* Thiết lập tab */
+    background-color: #fff; 
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #333;
+    display: inline-block; /* Quan trọng: làm cho background chỉ bao bọc chữ */
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -1px; /* Kéo lên để che viền trên của form */
+    margin-left: 15px; /* Thụt lề nhẹ để giống tab */
+    /* Các thuộc tính khác của tiêu đề */
+    font-size: 16px; 
+    margin-top: 10px; /* Đẩy xuống một chút */
+}
+
+/* 3. Phần thân (Form chứa Textarea và Nút) - Thay thế .make-post-body */
+#commentform { 
+    /* Form này chứa textarea và nút submit - đóng vai trò là phần thân có viền */
+    border: 1px solid #e0e0e0;
+    border-radius: 0 4px 4px 4px; 
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Đảm bảo không có margin mặc định */
+	background-color: #ffffff;
+}
+
+/* 4. Textarea - Thay thế .make-post-input */
+#respond textarea {
+    width: 100%;
+    border: 1px solid #3b3b3b; /* BỎ VIỀN: Textarea không có viền riêng */
+    resize: none;
+    padding: 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    outline: none;
+    /* Bỏ các thuộc tính cũ không cần thiết */
+    margin: 0; 
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* 5. Nút gửi - Thay thế .make-post-share */
+#respond input[type="submit"] {
+    align-self: flex-end;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+    text-transform: lowercase; /* Đảm bảo chữ viết thường nếu bạn không muốn chữ in hoa */
+	margin-left: 85%;
+}
+
+#respond input[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+/* 6. Ẩn dòng “Đăng nhập với tên…” */
+.logged-in-as {
+    display: none;
+}
+/* Clearing ---------------------------------- */
+
+.group::after,
+.entry-content::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+/* ==== Comment Form Style (Login View) ==== */
+/* 1. Hộp Bao Quanh (Card) - Thay thế .make-post-wrapper */
+#respond {
+    max-width: 580px;
+    margin: 30px auto 20px auto; 
+    background-color: #8e8c8c;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px #b3b3b3 solid; /* Bỏ viền tổng thể, dùng viền cho phần form bên dưới */
+    border-radius: 4px;
+    padding: 0; 
+}
+
+/* 2. Tiêu đề "Make a Post" - Thay thế .make-post-header */
+#respond .comment-reply-title {
+    /* Thiết lập tab */
+    background-color: #fff; 
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #333;
+    display: inline-block; /* Quan trọng: làm cho background chỉ bao bọc chữ */
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: -1px; /* Kéo lên để che viền trên của form */
+    margin-left: 15px; /* Thụt lề nhẹ để giống tab */
+    /* Các thuộc tính khác của tiêu đề */
+    font-size: 16px; 
+    margin-top: 10px; /* Đẩy xuống một chút */
+}
+
+/* 3. Phần thân (Form chứa Textarea và Nút) - Thay thế .make-post-body */
+#commentform { 
+    /* Form này chứa textarea và nút submit - đóng vai trò là phần thân có viền */
+    border: 1px solid #e0e0e0;
+    border-radius: 0 4px 4px 4px; 
+    padding: 12px 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Đảm bảo không có margin mặc định */
+	background-color: #ffffff;
+}
+
+/* 4. Textarea - Thay thế .make-post-input */
+#respond textarea {
+    width: 100%;
+    border: 1px solid #3b3b3b; /* BỎ VIỀN: Textarea không có viền riêng */
+    resize: none;
+    padding: 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    outline: none;
+    /* Bỏ các thuộc tính cũ không cần thiết */
+    margin: 0; 
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* 5. Nút gửi - Thay thế .make-post-share */
+#respond input[type="submit"] {
+    align-self: flex-end;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+    text-transform: lowercase; /* Đảm bảo chữ viết thường nếu bạn không muốn chữ in hoa */
+	margin-left: 85%;
+}
+
+#respond input[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+/* 6. Ẩn dòng “Đăng nhập với tên…” */
+.logged-in-as {
+    display: none;
+}
+/* Clearing ---------------------------------- */
+
+.group::after,
+.entry-content::after {
+	clear: both;
+	content: "";
+	display: block;
+}
+comments-list a{
+	text-decoration: none !important;
+	color: black !important;
+}
+/* comment tác giả  */
+.comments-box {
+    background: #fff;
+    padding: 15px 20px;
+    border-radius: 4px;
+}
+
+.comments-box-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.comments-box-line {
+    width: 50px;
+    border: 2px solid #6c7a89;
+    margin-bottom: 10px;
+}
+
+.comments-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.comments-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.comments-list li:last-child {
+    border-bottom: none;
+}
+
+.comments-list a {
+    color: #3498db;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.comments-list a:hover {
+    text-decoration: underline;
+}
+
+/* end comment tác giả  */
