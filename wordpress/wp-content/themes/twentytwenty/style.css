@@ -7637,3 +7637,171 @@ comments-list a{
 }
 
 /* end comment tác giả  */
+
+
+
+
+/* --- Bố cục 3 cột cho bài viết chi tiết --- */
+
+/* 1. Container chính dùng Flexbox */
+.single-post-three-column-layout {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống hàng trên di động */
+    justify-content: space-between;
+    gap: 30px; /* Khoảng cách giữa các cột */
+    max-width: 1600px; /* Tùy chỉnh chiều rộng tối đa */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* 2. Cột trái: Thể loại */
+.sidebar-left {
+    flex-basis: 280px; /* Chiều rộng cột 1 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 1; /* Vị trí */
+}
+
+/* 3. Cột giữa: Nội dung chính */
+.post-detail-center {
+    flex: 1; /* Cho phép cột giữa lấp đầy không gian */
+    min-width: 0; /* Quan trọng để flexbox không bị vỡ */
+    order: 2; /* Vị trí */
+}
+
+/* 4. Cột phải: Bài viết gần đây */
+.sidebar-right {
+    flex-basis: 280px; /* Chiều rộng cột 3 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 3; /* Vị trí */
+}
+
+/* --- Responsive cho Di động & Tablet --- */
+@media (max-width: 1024px) {
+    .single-post-three-column-layout {
+        flex-direction: column; /* Xếp chồng các cột */
+    }
+
+    /* Đổi thứ tự trên di động: Nội dung chính lên đầu */
+    .sidebar-left {
+        order: 2;
+        flex-basis: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-top: 30px;
+    }
+    .post-detail-center {
+        order: 1; /* Lên đầu */
+        flex-basis: 100%;
+    }
+    .sidebar-right {
+        order: 3;
+        flex-basis: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* --- Bố cục 3 cột cho bài viết chi tiết --- */
+
+/* 1. Container chính dùng Flexbox */
+.single-post-three-column-layout {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống hàng trên di động */
+    justify-content: space-between;
+    gap: 30px; /* Khoảng cách giữa các cột */
+    max-width: 1600px; /* Tùy chỉnh chiều rộng tối đa */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* 2. Cột trái: Thể loại */
+.sidebar-left {
+    flex-basis: 280px; /* Chiều rộng cột 1 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 1; /* Vị trí */
+    
+    /* === THAY ĐỔI THEO YÊU CẦU === */
+    background: #f9f9f9; /* Nền xám bên ngoài */
+    padding: 15px; /* Khoảng đệm cho nền xám */
+    border-radius: 8px; /* Bo góc ngoài */
+}
+
+/* 3. Cột giữa: Nội dung chính */
+.post-detail-center {
+    flex: 1; /* Cho phép cột giữa lấp đầy không gian */
+    min-width: 0; /* Quan trọng để flexbox không bị vỡ */
+    order: 2; /* Vị trí */
+}
+
+/* 4. Cột phải: Bài viết gần đây */
+.sidebar-right {
+    flex-basis: 280px; /* Chiều rộng cột 3 */
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 3; /* Vị trí */
+}
+
+/* --- Responsive cho Di động & Tablet --- */
+@media (max-width: 1024px) {
+    .single-post-three-column-layout {
+        flex-direction: column; /* Xếp chồng các cột */
+    }
+
+    /* Đổi thứ tự trên di động: Nội dung chính lên đầu */
+    .sidebar-left {
+        order: 2;
+        flex-basis: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-top: 30px;
+    }
+    .post-detail-center {
+        order: 1; /* Lên đầu */
+        flex-basis: 100%;
+    }
+    .sidebar-right {
+        order: 3;
+        flex-basis: 100%;
+        margin-top: 30px;
+    }
+}
+
+/* --- CSS cho Cột 1 (Thể loại - Dựa trên ảnh) --- */
+.sidebar-left .widget {
+    /* === THAY ĐỔI THEO YÊU CẦU === */
+    background: #fff; /* Nền trắng bên trong */
+    padding: 20px;
+    border-radius: 8px;
+}
+.sidebar-left .widget-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px dashed #ddd; /* Đường gạch nối */
+    color: #333; /* Giữ màu tiêu đề là màu tối */
+}
+.sidebar-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar-left ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.sidebar-left ul li::before {
+    content: "•"; /* Dấu chấm vàng */
+    color: #ffd700; /* Màu vàng (bạn có thể đổi) */
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.sidebar-left ul li a {
+    text-decoration: none;
+    /* === THAY ĐỔI THEO YÊU CẦU === */
+    color: #2271b1; /* Màu chữ xanh (giống trong ảnh) */
+}
+.sidebar-left ul li:last-child {
+    border-bottom: none;
+}
+
+
