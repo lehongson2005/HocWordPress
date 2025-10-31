@@ -1005,7 +1005,7 @@ section {
 }
 
 .section-inner.thin {
-	max-width: 58rem;
+	max-width: 70rem;
 }
 
 .section-inner.small {
@@ -6981,4 +6981,45 @@ a.to-the-top > * {
 }
 .primary-menu reset-list-style{
 	color: white !important;
+}
+
+
+
+.color-accent{
+	color: #ff2727 !important;
+}
+.archive-header{
+	background-color:white !important;
+	color: black !important;
+}
+/* 1. Thiết lập Layout tổng thể của Form */
+
+
+/* 2. Tạo kiểu cho Ô nhập liệu (Search Field) - Chứa Icon */
+.search-field {
+	flex-grow: 1;
+	/* Tăng padding trái để chừa chỗ cho icon, đây là phần quan trọng */
+	padding: 10px 15px 10px 15px !important;
+	border: none !important;
+	outline: none;
+	font-size: 16px;
+	color: #333;
+}
+
+/* 3. Tạo kiểu cho Nút Tìm kiếm (Search Button) */
+.search-submit {
+	background-color: #38A852 !important; /* Màu xanh lá cây */
+	color: white !important;
+	border: none !important;
+	padding: 12px 25px !important;
+	font-size: 16px !important;
+	text-transform: capitalize;
+	border-radius: 3px !important;
+	cursor: pointer;
+	margin-left: 10px;
+	transition: background-color 0.3s ease;
+}
+
+.search-submit:hover {
+	background-color: #2F8C43 !important;
 }
