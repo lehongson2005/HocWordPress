@@ -7502,7 +7502,7 @@ a.to-the-top > * {
 #respond {
     max-width: 580px;
     margin: 30px auto 20px auto; 
-    background-color: #8e8c8c;
+    background-color: #d8d8d8;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     border: 1px #b3b3b3 solid; /* Bỏ viền tổng thể, dùng viền cho phần form bên dưới */
     border-radius: 4px;
